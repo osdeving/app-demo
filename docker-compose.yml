@@ -1,0 +1,14 @@
+name: mini-backend
+services:
+  api:
+    build: .
+    # se quiser usar imagem do registry, troque por: image: seuuser/mini-backend:latest
+    restart: unless-stopped
+    environment:
+      - PORT=8080
+    networks: [intra]
+    expose:
+      - "8080"     # só rede docker; sem publicar porta no host (Nginx fará proxy)
+networks:
+  intra:
+    external: true
