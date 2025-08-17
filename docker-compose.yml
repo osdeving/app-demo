@@ -12,3 +12,4 @@ services:
 networks:
   intra:
     external: true
+    name: "full_infra"
